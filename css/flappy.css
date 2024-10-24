@@ -1,3 +1,4 @@
+/* Estilo base */
 * {
     box-sizing: border-box;
 }
@@ -15,80 +16,77 @@
     background: url('../imgs/bg-paisagem.jpg') top center no-repeat;
     background-size: cover;
     overflow: hidden;
-
 }
-
 
 .video-game {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+
+ 
+}
+
+.aba-blue, .aba-red {
+    position: relative;
+    height: 650px;
+    width: 250px;
+    border-radius: 40px;
+    box-shadow: inset 0px -20px 0px 0px rgba(0, 0, 0, 0.15);
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .aba-blue {
-    position: relative;
     background-color: #49d1e7;
-    height: 650px;
-    width: 250px;
     border-radius: 40px 0 0 40px;
-    box-shadow: inset 0px -20px 0px 0px rgb(0, 0, 0, 0.15);
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-        border: 12px solid rgb(56, 56, 56);
-        background-image: linear-gradient(to bottom right, rgb(153, 152, 152), rgba(0, 0, 0, 1));
-        box-sizing: border-box;
-    }
 }
 
 .aba-red {
-    position: relative;
     background-color: #ea555a;
-    height: 650px;
-    width: 250px;
     border-radius: 0 40px 40px 0;
-    box-shadow: inset -17px -20px 0px 0px rgb(0, 0, 0, 0.15);
-
-    &:before {
-        content: '';
-        position: absolute;
-        bottom: 30%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-        border: 12px solid rgb(56, 56, 56);
-        background-image: linear-gradient(to bottom right, rgb(153, 152, 152), rgba(0, 0, 0, 1));
-        box-sizing: border-box;
-    }
 }
 
-
-.controls{
-    position: relative;
-    width: 110px;
-    height: 110px;
-    top: 55%;
-    left: 50%;
-    transform: translateX(-50%);
+.aba-blue:before, .aba-red:before {
+    content: '';
+    position: absolute;
+    height: 80px; /* ajuste conforme necessário */
+    width: 80px;  /* ajuste conforme necessário */
+    border-radius: 50%;
+    border: 12px solid rgb(56, 56, 56);
+    background-image: linear-gradient(to bottom right, rgb(153, 152, 152), rgba(0, 0, 0, 1));
+    box-sizing: border-box;
 }
 
-.controls2{
-    position: relative;
-    width: 110px;
-    height: 110px;
+.aba-blue:before {
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
 }
+
+.aba-red:before {
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls, .controls2 {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.controls {
+    top: 55%;
+}
+
+.controls2 {
+    top: 20%;
+}
+
 .controls span, .controls2 span {
     position: absolute;
     display: block;
@@ -98,26 +96,25 @@
     background-image: linear-gradient(to bottom right, rgb(153, 152, 152), rgba(0, 0, 0, 1));
 }
 
-.controls span:nth-child(4n), .controls2 span:nth-child(4n){
+.controls span:nth-child(4n), .controls2 span:nth-child(4n) {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    
 }
 
-.controls span:nth-child(4n + 1), .controls2 span:nth-child(4n + 1){
+.controls span:nth-child(4n + 1), .controls2 span:nth-child(4n + 1) {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
 }
 
-.controls span:nth-child(4n + 2), .controls2 span:nth-child(4n + 2){
+.controls span:nth-child(4n + 2), .controls2 span:nth-child(4n + 2) {
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.controls span:nth-child(4n + 3), .controls2 span:nth-child(4n + 3){
+.controls span:nth-child(4n + 3), .controls2 span:nth-child(4n + 3) {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
@@ -127,7 +124,7 @@
     position: absolute;
     left: calc(50% - 30px);
     width: 60px;
-    filter: drop-shadow(-10px 30px 4px rgb(0, 0, 0, 0.1));
+    filter: drop-shadow(-10px 30px 4px rgba(0, 0, 0, 0.1));
 }
 
 .par-de-barreiras {
@@ -143,7 +140,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    filter: drop-shadow(-5px 5px 4px rgb(0, 0, 0, 0.2));
+    filter: drop-shadow(-5px 5px 4px rgba(0, 0, 0, 0.2));
 }
 
 .barreira .borda {
@@ -172,5 +169,44 @@
     font-size: 60px;
     font-weight: 700;
     color: white;
-    z-index: 100
+    z-index: 100;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 600px) {
+    [wm-flappy] {
+        height: 200px;
+        width: 100%; /* Torna a largura 100% para telas menores */
+        border-width: 15px; /* Ajusta a borda */
+    }
+
+    .video-game {
+        margin-top: 15px; /* Ajusta a margem */
+    }
+
+    .aba-blue, .aba-red {
+        height: 400px; /* Ajusta a altura das abas */
+    }
+
+    .controls, .controls2 {
+        width: 80px; /* Ajusta o tamanho dos controles */
+        height: 80px;
+    }
+
+    .controls span, .controls2 span {
+        height: 24px; /* Ajusta o tamanho dos botões */
+        width: 24px;
+    }
+
+    .passaro {
+        width: 40px; /* Ajusta o tamanho do pássaro */
+    }
+
+    .barreira .borda, .barreira .corpo {
+        width: 80px; /* Ajusta o tamanho das barreiras */
+    }
+
+    .progresso {
+        font-size: 30px; /* Ajusta o tamanho da fonte do progresso */
+    }
 }
