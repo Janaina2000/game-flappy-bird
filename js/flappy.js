@@ -165,7 +165,7 @@ function Progresso() {
             if(colidiu(passaro, barreiras)){
         
                 clearInterval(temporizador)
-                alert('Game Hover!! \n sua pontuação foi de '+ pontos + 'pontos');
+                console.log('Game Hover!! \n sua pontuação foi de '+ pontos + 'pontos');
                 document.location.reload(true);
             }
         }, 20)
