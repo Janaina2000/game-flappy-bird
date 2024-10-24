@@ -172,10 +172,14 @@
     z-index: 100;
 }
 
+.conteudo, .video-game{
+    height: 100%;
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 600px) {
     [wm-flappy] {
-        height: 200px;
+        height: 100%;
         width: 100%; /* Torna a largura 100% para telas menores */
         border-width: 15px; /* Ajusta a borda */
     }
